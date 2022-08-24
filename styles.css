@@ -1,0 +1,11 @@
+.c3-line {
+    stroke-width: .2rem;
+}
+
+.c3-texts .c3-text,
+g.c3-axis text,
+.c3-legend-item {
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: #838383;
+}
