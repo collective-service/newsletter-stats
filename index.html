@@ -18,7 +18,14 @@
 <body>
     <div class="container">
       <!-- Initialize a select button -->
+      <div class="title">Trends</div>
+      <div class="subtitle">Open rate, Click rate and Number of members</div>
       <div id="chart"></div>
+    </div>
+    <div class="container">
+      <div class="title">Average</div>
+      <div class="subtitle">on the last 3 months</div>
+      <div id="chart1"></div>
     </div>
     <script type="text/javascript">
         const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSzFMVyQqV0bn9GfOp5vUjcGf6DzyMUUwE446kFMvwlK7PYaOMHOe5Pqhd8-i6J7Q/pub?gid=1331125921&single=true&output=csv";
@@ -121,8 +128,51 @@
                     }
                 });
 
+                var chart1 = c3.generate({
+                    bindto: '#chart1',
+                    data: {
+                        columns: [
+                          ['Open Rate', 29.93],
+                          ['Click Rate', 16.67]
+                        ],
+                        type: 'gauge',
+                        onclick: function (d, i) { console.log("onclick", d, i); },
+                        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+                    },
+                    gauge: {
+                       label: {
+                           format: function(value, ratio) {
+                                return value+' %';
+                            },
+                            show: true // to turn off the min/max labels.
+                      },
+                  min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+                  max: 50, // 100 is default
+                 units: ' %',
+                 width: 39 // for adjusting arc thickness
+                    },
+                    color: {
+                        pattern: ['#D90368', '#E27093', '#546B89', '#204669'], // the three color levels for the percentage values.
+                        threshold: {
+                //            unit: 'value', // percentage is default
+                //            max: 200, // 100 is default
+                            values: [25, 50, 75, 100]
+                        }
+                    },
+                    size: {
+                        height: 180
+                    }
+                });
+
+
+
+
             })
         });
+
+
+
     </script>
 </body>
 

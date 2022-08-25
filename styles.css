@@ -9,3 +9,17 @@ g.c3-axis text,
     font-weight: 200;
     color: #838383;
 }
+
+.title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.subtitle {
+  font-size: 0.7rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.container {
+  padding-top:10px;
+}
