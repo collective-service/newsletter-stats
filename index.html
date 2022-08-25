@@ -17,7 +17,8 @@
 
 <body>
     <div class="container">
-        <div id="chart"></div>
+      <!-- Initialize a select button -->
+      <div id="chart"></div>
     </div>
     <script type="text/javascript">
         const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSzFMVyQqV0bn9GfOp5vUjcGf6DzyMUUwE446kFMvwlK7PYaOMHOe5Pqhd8-i6J7Q/pub?gid=1331125921&single=true&output=csv";
@@ -42,16 +43,19 @@
                     element["Date"] = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
                     element["Open Rate"] = +element["Open Rate"];
                     element["Click Rate"] = +element["Click Rate"];
+                    element["Members"] = +element["Members"];
                 });
                 data = data.sort(sortID);
                 var xArr = ['x'],
-                    openArr = ['Open Rate'],
+                    openArr = ['Open Rate'];
                     clickArr = ['Click Rate'];
+                    memberArr = ['Members'];
                 data.forEach(d => {
                     if (d["Date"] != 'NaN-NaN-NaN') {
                         xArr.push(d["Date"]);
                         openArr.push(d["Open Rate"]);
-                        clickArr.push(d["Click Rate"])
+                        clickArr.push(d["Click Rate"]);
+                        memberArr.push(d["Members"]);
                     }
                 });
 
@@ -59,10 +63,10 @@
                     bind: "#chart",
                     data: {
                         x: 'x',
-                        columns: [xArr, openArr, clickArr]
+                        columns: [xArr, openArr, clickArr, memberArr]
                     },
                     color: {
-                        pattern: ['#204669', '#F14F43']
+                        pattern: ['#204669', '#D90368', '#D2D2D2']
                     },
                     axis: {
                         x: {
@@ -71,20 +75,23 @@
                                 centered: true,
                                 outer: true,
                                 fit: true,
-                                format: '%m-%Y'
+                                format: '%m %Y'
                             }
                         },
                         y: {
                             show: true,
                             // min: 22,
+                            min: 8,
+                            max: 92,
                             tick: {
                                 centered: true,
                                 outer: true,
                                 fit: true,
-                                count: 4,
+                                count:5,
                                 format: d3.format('d')
                             }
-                        }
+                        },
+
                     },
                     grid: {
                         y: {
@@ -93,11 +100,11 @@
                     },
                     size: {
                         height: 300,
-                        width: 520
+                        width: 480
                     },
                     padding: {
                         // left: 20,
-                        right: 20
+                        top:30,
                     },
                     legend: {
                         hide: false
