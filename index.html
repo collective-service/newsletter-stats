@@ -113,7 +113,7 @@
                     tooltip: {
                         format: {
                             value: function(value, ratio, id) {
-                                return value + "%";
+                              if (id !="Members") return value + "%" else return value ;
                             }
                         }
                     }
