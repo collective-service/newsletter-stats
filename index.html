@@ -29,7 +29,7 @@
     </div>
     <script type="text/javascript">
         const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSzFMVyQqV0bn9GfOp5vUjcGf6DzyMUUwE446kFMvwlK7PYaOMHOe5Pqhd8-i6J7Q/pub?gid=1331125921&single=true&output=csv";
-        //const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSzFMVyQqV0bn9GfOp5vUjcGf6DzyMUUwE446kFMvwlK7PYaOMHOe5Pqhd8-i6J7Q/pub?gid=143243660&single=true&output=csv";
+        //const dataAvg = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSzFMVyQqV0bn9GfOp5vUjcGf6DzyMUUwE446kFMvwlK7PYaOMHOe5Pqhd8-i6J7Q/pub?gid=143243660&single=true&output=csv";
         $(document).ready(function() {
             function sortID(a, b) {
                 if (a["ID"] > b["ID"]) {
@@ -134,8 +134,8 @@
                     bindto: '#chart1',
                     data: {
                         columns: [
-                          ['Open Rate', 34.03],
-                          ['Click Rate', 20.67]
+                          ['Open Rate', 30.23],
+                          ['Click Rate', 14.97]
                         ],
                         type: 'gauge',
                         onclick: function (d, i) { console.log("onclick", d, i); },
