@@ -71,11 +71,12 @@
                     bind: "#chart",
                     data: {
                         x: 'x',
-                        columns: [xArr, openArr, clickArr, memberArr]
+                        columns: [xArr, openArr, clickArr, memberArr],
+                        axes: {'Members': 'y2'}
                     },
 
                     color: {
-                        pattern: ['#204669', '#D90368', '#D2D2D2']
+                        pattern: ['#204669', '#D90368', '#9EC8AE']
                     },
                     axis: {
                         x: {
@@ -92,13 +93,24 @@
                             // min: 22,
                             min: 8,
                             max: 92,
+                            label: {
+                              text: '%',
+                              position: 'inner-top',
+                            },
                             tick: {
                                 centered: true,
-                                outer: true,
+                                outer: false,
                                 fit: true,
                                 count:5,
                                 format: d3.format('d')
                             }
+                        },
+                        y2: {
+                            show: true,
+                            label: {
+                              text: 'Members',
+                              position: 'inner-middle',
+                              }
                         },
 
                     },
@@ -112,7 +124,6 @@
                         width: 480
                     },
                     padding: {
-                        // left: 20,
                         top:30,
                         right:30,
                     },
